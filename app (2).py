@@ -38,11 +38,11 @@ null =False
 legalId = '45e66ad0-4e11-4e2b-8dbd-35f8021098bd'
 mailerLogin = 'dima160899@yandex.ru'
 mailerPass = 'whzkcbkjuspbgnra'
-host = 'ec2-54-164-22-242.compute-1.amazonaws.com'
+host = 'ec2-54-73-68-39.eu-west-1.compute.amazonaws.com'
 port = '5432'
-database = 'de8k09g3q8cu38'
-user = 'froyqwzawvbzre'
-password = '75a90d3b1363ad0f4b13ce32342cd6fe54c5348cd765ad8a5e6e0cdba3bd1cc4'
+database = 'dfp6ese030plt8'
+user = 'bedtudqbfzrffu'
+password = 'd30db922a7cfb6c58a596c487f97e724e35e9932a274df59d5b493c9ef9480f6'
 rez = ''
 test = ''
 
@@ -473,11 +473,15 @@ def log():
 @app.route('/registration')
 def reg():
     arg = dict(request.args)
-    email = arg['email'] + ''
-    token = urandom(16).hex()
-    arg['token'] = token
-    sql_insert('reg_users', param_insert(arg))
-    send_emails(email, 'password change', 'http://localhost:4200/set_password?token=' + token)
+    # email = arg['email'] + ''
+    # password = arg['password'] + ''
+    # fio = arg['fio'] + ''
+    # sex = arg['sex'] + ''
+    # birthday = arg['birthday'] + ''
+    # live_place = arg['live_place'] + ''
+    # snils = arg['snils'] + ''
+    sql_insert('users', param_insert(arg))
+    #send_emails(email, 'password change', 'http://localhost:4200/set_password?token=' + token)
     return {'response': True}
 
 @app.route('/is_valid')
